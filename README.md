@@ -8,45 +8,45 @@ There were a total of six different lab sessions. The first two recitations intr
 ## Lab 1 ##
 
 - [Slides](lab1/lab1_handout.pdf)
-- [R script: first steps in R](/blob/tree/master/lab1/lab1_first_steps.R)
-- [R script: reading and analyzing data with R](/blob/tree/master/lab1/lab1_data_analysis.R)
-- [Example dataset: posts on Barack Obama's Facebook page](/blob/tree/master/lab1/lab1_obama_data.csv)
+- [R script: first steps in R](lab1/lab1_first_steps.R)
+- [R script: reading and analyzing data with R](lab1/lab1_data_analysis.R)
+- [Example dataset: posts on Barack Obama's Facebook page](lab1/lab1_obama_data.csv)
 
 ## Lab 2 ##
 
-- [Slides](/blob/tree/master/lab2/lab2_handout.pdf)
-- [R script: collecting Twitter data with R](/blob/tree/master/lab2/lab2_univariate_analysis.R)
-- [R script: analyzing Twitter data with R](/blob/tree/master/lab2/lab2_bivariate_analysis.R)
+- [Slides](lab2/lab2_handout.pdf)
+- [R script: collecting Twitter data with R](lab2/lab2_univariate_analysis.R)
+- [R script: analyzing Twitter data with R](lab2/lab2_bivariate_analysis.R)
 
 
 ## Lab 3 ##
 
-- [Slides](/blob/tree/master/lab3/lab3_handout.pdf)
-- [R script: collecting Twitter data with R](/blob/tree/master/lab3/lab3_collecting_tweets.R)
-- [R script: analyzing Twitter data with R](/blob/tree/master/lab3/lab3_analyzing_tweets.R)
-- [R script: additional functions](/blob/tree/master/lab3/lab3_functions.R)
+- [Slides](lab3/lab3_handout.pdf)
+- [R script: collecting Twitter data with R](lab3/lab3_collecting_tweets.R)
+- [R script: analyzing Twitter data with R](lab3/lab3_analyzing_tweets.R)
+- [R script: additional functions](lab3/lab3_functions.R)
 
 
 ## Lab 4 ##
 
-- [Slides](/blob/tree/master/lab4/lab4_handout.pdf)
-- [R script: analyzing Facebok data with R](/blob/tree/master/lab4/lab4_facebook_analysis.R)
-- [R script: visualizing Facebok data with R](/blob/tree/master/lab4/lab4_facebook_visualization.R)
-- [R script: additional functions](/blob/tree/master/lab4/lab4_functions.R)
+- [Slides](lab4/lab4_handout.pdf)
+- [R script: analyzing Facebok data with R](lab4/lab4_facebook_analysis.R)
+- [R script: visualizing Facebok data with R](lab4/lab4_facebook_visualization.R)
+- [R script: additional functions](lab4/lab4_functions.R)
 
 
 ## Lab 5 ##
 
-- [Slides](/blob/tree/master/lab5/lab5_handout.pdf)
-- [R script: advanced examples of Twitter data analysis with R](/blob/tree/master/lab5/lab5_twitter.R)
-- [Example dataset: tweets sent by Sen. John McCain](/blob/tree/master/lab5/senjohnmccain.json)
-- [R script: advanced examples of Facebook data analysis with R](/blob/tree/master/lab5/lab5_facebook.R)
-- [Example dataset: Facebook posts by Sen. John McCain](/blob/tree/master/lab5/johnmccain.csv)
-- [R script: additional functions](/blob/tree/master/lab5/lab5_functions.R)
+- [Slides](lab5/lab5_handout.pdf)
+- [R script: advanced examples of Twitter data analysis with R](lab5/lab5_twitter.R)
+- [Example dataset: tweets sent by Sen. John McCain](lab5/senjohnmccain.json)
+- [R script: advanced examples of Facebook data analysis with R](lab5/lab5_facebook.R)
+- [Example dataset: Facebook posts by Sen. John McCain](lab5/johnmccain.csv)
+- [R script: additional functions](lab5/lab5_functions.R)
 
 
 ## Lab 6 ##
 
-- [R script: more examples of social media data analysis with R](/blob/tree/master/lab6/lab6_examples.R)
-- [R script: additional functions](/blob/tree/master/lab6/lab6_functions.R)
+- [R script: more examples of social media data analysis with R](lab6/lab6_examples.R)
+- [R script: additional functions](lab6/lab6_functions.R)
 
