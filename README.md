@@ -7,7 +7,7 @@ There were a total of six different lab sessions. The first two recitations intr
 
 ## Lab 1 ##
 
-- [Slides](/blob/tree/master/lab1/lab1_handout.pdf)
+- [Slides](lab1/lab1_handout.pdf)
 - [R script: first steps in R](/blob/tree/master/lab1/lab1_first_steps.R)
 - [R script: reading and analyzing data with R](/blob/tree/master/lab1/lab1_data_analysis.R)
 - [Example dataset: posts on Barack Obama's Facebook page](/blob/tree/master/lab1/lab1_obama_data.csv)
