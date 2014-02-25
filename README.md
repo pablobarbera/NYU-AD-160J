@@ -15,8 +15,8 @@ There were a total of six different lab sessions. The first two recitations intr
 ## Lab 2 ##
 
 - [Slides](lab2/lab2_handout.pdf)
-- [R script: collecting Twitter data with R](lab2/lab2_univariate_analysis.R)
-- [R script: analyzing Twitter data with R](lab2/lab2_bivariate_analysis.R)
+- [R script: univariate data analysis with R](lab2/lab2_univariate_analysis.R)
+- [R script: bivariate data analysis with R](lab2/lab2_bivariate_analysis.R)
 
 
 ## Lab 3 ##
