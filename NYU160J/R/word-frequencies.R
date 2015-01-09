@@ -40,29 +40,31 @@ word.frequencies <- function(text, stopwords=NULL, verbose=TRUE, sparsity=0.999)
     text2 <- gsub('\\"', "", text2) 
     cat("done!\n")
     # preparing corpus of words
-    myCorpus <- Corpus(VectorSource(text2))
     if (Sys.info()['sysname']=="Darwin"){
         myCorpus <- tm_map(myCorpus, function(x) iconv(x, to='UTF-8-MAC', sub='byte'))   
+        text3 <- iconv(text2, to='UTF-8-MAC', sub='byte')
     }
     if (Sys.info()['sysname']=="Windows"){
         myCorpus <- tm_map(myCorpus, function(x) iconv(enc2utf8(x), sub = "byte"))  
+        text3 <- iconv(enc2utf8(text2), sub='byte')
     }
    
     # convert to lower case
     cat("Converting to lowercase... ")
-    myCorpus <- tm_map(myCorpus, tolower)
+    text3 <- tolower(text3)
     cat("done!\n")
     # remove numbers
     cat("Removing digits and URLs... ")
-    myCorpus <- tm_map(myCorpus, removeNumbers)
+    text3 <- removeNumbers(text3)
+
     # remove URLS
     removeURL <- function(x) gsub('"(http.*) |(http.*)$|\n', "", x)
     cat("done!\n")
-    myCorpus <- tm_map(myCorpus, removeURL) 
+    text3 <- removeURL(text3)
 
     # building document term matrix
     cat("Counting words... ")
-    myTdm <- TermDocumentMatrix(myCorpus, control=list(minWordLength=3))
+    myTdm <- TermDocumentMatrix(Corpus(VectorSource(text3)), control=list(minWordLength=3))
     myTdm2 <- removeSparseTerms(myTdm, sparsity)   
     cat("done!\n") 
 
