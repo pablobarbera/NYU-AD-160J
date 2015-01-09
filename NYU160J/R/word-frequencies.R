@@ -41,11 +41,9 @@ word.frequencies <- function(text, stopwords=NULL, verbose=TRUE, sparsity=0.999)
     cat("done!\n")
     # preparing corpus of words
     if (Sys.info()['sysname']=="Darwin"){
-        myCorpus <- tm_map(myCorpus, function(x) iconv(x, to='UTF-8-MAC', sub='byte'))   
         text3 <- iconv(text2, to='UTF-8-MAC', sub='byte')
     }
     if (Sys.info()['sysname']=="Windows"){
-        myCorpus <- tm_map(myCorpus, function(x) iconv(enc2utf8(x), sub = "byte"))  
         text3 <- iconv(enc2utf8(text2), sub='byte')
     }
    
