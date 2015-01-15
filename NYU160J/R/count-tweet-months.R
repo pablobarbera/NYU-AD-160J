@@ -11,7 +11,7 @@
 #'
 
 countMonthsTweets <- function(dates){
-    month = format.twitter.date(dates, format="date")
+    month = formatTwDate(dates, format="date")
     month = substr(month, 1, 7)
     month = as.Date(paste0(names(months), "-01"))
     month.x <- seq(month[1], month[length(month)], by="month")
