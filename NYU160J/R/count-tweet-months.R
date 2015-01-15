@@ -13,11 +13,14 @@
 countMonthsTweets <- function(dates){
     month = formatTwDate(dates, format="date")
     month = substr(month, 1, 7)
-    month = as.Date(paste0(names(months), "-01"))
-    month.x <- seq(month[1], month[length(month)], by="month")
+    month = as.Date(paste0(month, "-01"))
+    month = table(month)
+    month.x <- seq(as.Date(names(month)[1]), 
+    	as.Date(names(month)[length(month)]), by="month")
     tweets.df <- data.frame(month = month.x, tweets = 0,
         stringsAsFactors=F)
-    tweets.df$tweets[month.x %in% month] <- as.numeric(months)
+    tweets.df$tweets[month.x %in% as.Date(names(month))] <- 
+    	as.numeric(month)
     return(tweets.df)
 }
 
