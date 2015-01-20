@@ -62,6 +62,7 @@ parseTweets <- function(tweets, simplify=FALSE, verbose=TRUE){
         utc_offset = unlistWithNA(results.list, c('user', 'utc_offset')),
         friends_count = unlistWithNA(results.list, c('user', 'friends_count')),
         screen_name = unlistWithNA(results.list, c('user', 'screen_name')),
+        photo = ifelse(unlist(lapply(results.list, function(x) length(x$entities$media)))==1, TRUE, FALSE),
         stringsAsFactors=F)
 
     # retweet_count is extracted from retweeted_status. If this is not a RT, set to zero
