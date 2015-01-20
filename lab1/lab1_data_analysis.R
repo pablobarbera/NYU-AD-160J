@@ -2,7 +2,7 @@
 ## Introduction to data analysis with R
 ## Author: Pablo Barbera
 ## Social Media and Political Participation
-## Lab 1, January 6th 2014
+## Lab 1, January 6th 2015
 ################################################################
 
 ### SUBSETTING VECTORS ###
@@ -122,8 +122,8 @@ which(dataset$H > 180)
 ## While typing small datasets like this in R makes sense, for anything larger than
 ## 10 rows, you will want to read it from a file
 
-## The file "lab1_obama_data.csv" contains a data set with information about the 524
-## posts from his Facebook page on 2013
+## The file "lab1_nyu_data.csv" contains a data set with information about the
+## posts on the NYU Abu Dhabi Facebook page since it was created in 2010
 
 ## Download it from NYU Classes (if you haven't done it already), and navigate using
 ## the right-hand panel (Files tab) to the folder where you saved it.
@@ -132,12 +132,12 @@ which(dataset$H > 180)
 
 ## You will see that a new line appears on the console -- copy and paste it here
 ## This is my line of code, but it will be different from yours
-setwd("~/Dropbox/teaching_2014/code")
+setwd("~/Dropbox/teaching/social-media-political-participation/code")
 
 ## Now, let's open the file!
 ## We use the "read.csv" function. A "csv" file is just a plain text file where the
 ## data for each individual is separated by commas (csv = comma separated values)
-dataset = read.csv("lab1_obama_data.csv", stringsAsFactors=F)
+dataset = read.csv("lab1_nyu_data.csv", stringsAsFactors=F)
 
 ## (Ignore for now the "stringsAsFactors" option...)
 
@@ -148,9 +148,9 @@ View(dataset)
 str(dataset)
 
 ## We can also access variables and summarize the data as shown above...
-## message of first post of 2013
+## message of first post ever
 dataset$message[1] 
-## all information available for first post of 2013
+## all information available for first post ever
 dataset[1,] 
 ## average number of likes for each post
 mean(dataset$likes_count) 
@@ -158,9 +158,9 @@ mean(dataset$likes_count)
 max(dataset$likes_count) 
 
 ## How can we find out what post received more likes?
-which(dataset$likes_count==1571691) ## note that here we need to use two equal signs!
+which(dataset$likes_count==860) ## note that here we need to use two equal signs!
 ## here:
-dataset[483,]
+dataset[392,]
 
 ## We can combine it all in one line:
 dataset[which(dataset$likes_count==max(dataset$likes_count)),]

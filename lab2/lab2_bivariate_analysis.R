@@ -2,18 +2,18 @@
 ## Bivariate Analysis
 ## Author: Pablo Barbera
 ## Social Media and Political Participation
-## Lab 2, January 7th 2014
+## Lab 2, January 7th 2015
 ################################################################
 
 ## As usual, before we run anything, we make sure to change the working
 ## directory to where we have all our code and data stored. In my case, it is:
-setwd("~/Dropbox/teaching_2014/code")
-## But it will different for yours! Click on the wheel on the files tab on
+setwd("~/Dropbox/teaching/social-media-political-participation/code")## But it will different for yours! Click on the wheel on the files tab on
 ## the bottom right panel; then choose "set as working directory"; and paste
 ## here in the script what you see on the console
 
 ## We will work with the same dataset as before
-dataset <- read.csv("lab1_obama_data.csv", stringsAsFactors=F)
+dataset <- read.csv("lab1_nyu_data.csv", stringsAsFactors=F)
+dataset$month <- substr(dataset$created_time, 6, 7)
 
 ####################################################
 ### BIVARIATE ANALYSIS: 2 CATEGORICAL VARIABLES ####
@@ -45,13 +45,26 @@ aggregate(dataset$likes_count,
           by=list(month=dataset$month), 
           FUN=max)
 
+# now let's see how we can prepare a plot showing the average number of likes per month
+# first we use the command aggregate to compute that (see above)
+likes_count = aggregate(dataset$likes_count, 
+          by=list(month=dataset$month), 
+          FUN=mean)
+# BUT: note that we know we save it as a new object, which is a data frame in itself
+likes_count$x ## this is the name of the variable that contains the count per month
+
+# finally, we can use the barplot command to display
+barplot(likes_count$x, names=1:12, xlab="Month", ylab="Average likes")
+# Note that we need to specify the "names" (labels on the x-axis) manually
+
 ###################################################
 ### BIVARIATE ANALYSIS: 2 CONTINUOUS VARIABLES ####
 ###################################################
 
 # do posts that get more likes also receive more comments?
 cor(dataset$likes_count, dataset$comments_count)
-# a correlation coefficient of +0.62 indicates a positive association (more likes = more comments)
+# a correlation coefficient of +0.76 indicates a positive association 
+# (more likes = more comments)
 
 # scatter plot comparing number of likes and number of comments
 plot(x=dataset$likes_count, y=dataset$comments_count,

@@ -2,12 +2,12 @@
 ## Collecting Twitter Data
 ## Author: Pablo Barbera
 ## Social Media and Political Participation
-## Lab 3, January 8th 2014
+## Lab 3, January 9th 2015
 ################################################################
 
 ## As usual, before we run anything, we make sure to change the working
 ## directory to where we have all our code and data stored. In my case, it is:
-setwd("~/Dropbox/teaching_2014/code")
+setwd("~/Dropbox/teaching/social-media-political-participation/code")
 ## But it will different for yours! Click on the wheel on the files tab on
 ## the bottom right panel; then choose "set as working directory"; and paste
 ## here in the script what you see on the console
@@ -22,9 +22,16 @@ install.packages("streamR")
 install.packages("ROAuth")
 ## Note that you will need to do this only once.
 
+## we will also install another package with additional functions
+## that I have prepared for the course
+install.packages("devtools")
+library(devtools)
+install_github("pablobarbera/NYU-AD-160J/NYU160J")
+
 ## Now we load the packages
 library(streamR)
 library(ROAuth)
+library(NYU160J)
 
 ## To download the tweets, you need to have an OAuth token -- a file that 
 ## allows you to connect to the API. I have prepared these files for you
@@ -37,11 +44,6 @@ library(ROAuth)
 
 ## Now, run the following line:
 load("oauth_token.Rdata")
-
-## We will also use some additional commands I have prepared for you.
-## Make sure you have saved the following file in your working folder
-## and then run this line:
-source("lab3_functions.R")
 
 ###############################################
 ### COLLECTING TWEETS FILTERING BY KEYWORDS ###
@@ -98,8 +100,9 @@ tweets <- parseTweets("tweets_geo.json")
 ## It's also possible to collect a random sample of tweets. That's what
 ## the "sampleStream" function does:
 
-sampleStream(file.name="tweets_random2.json", timeout=100, oauth=my_oauth)
+sampleStream(file.name="tweets_random.json", timeout=30, oauth=my_oauth)
 
+## Here I'm collecting 30 seconds of tweets
 ## And once again, to open the tweets in R...
 tweets <- parseTweets("tweets_random.json")
 
@@ -110,8 +113,8 @@ tweets <- parseTweets("tweets_random.json")
 ## Finally, here's how you can capture the most recent tweets (up to 3,200)
 ## of any given user (in this case, @nytimes)
 
-getTimeline(file.name="tweets_nytimes.json", screen_name="nytimes", 
-    n=1000, oauth=my_oauth)
+getTimeline(filename="tweets_nytimes.json", screen_name="nytimes", 
+    n=1000, oauth=my_oauth, trim_user="false")
 
 ## Now you know how it goes...
 tweets = parseTweets("tweets_nytimes.json")
@@ -124,12 +127,12 @@ tweets = parseTweets("tweets_nytimes.json")
 ## I will not discuss this in the lab session, but I add it here in case you
 ## want to create your own token in the future
 
-## Step 1: go to dev.twitter.com and sign in
-## Step 2: click on your username (top-right of screen) and then on "My applications"
-## Step 3: click on "Create a new application"
-## Step 4: fill name, description, and website (it can be anything, even google.com)
-## Step 5: Agree to user conditions and enter captcha.
-## Step 6: copy consumer key and consumer secret and paste below
+## Step 1: go to apps.twitter.com and sign in
+## Step 2: click on "Create New App"
+## Step 3: fill name, description, and website (it can be anything, even google.com)
+##			(make sure you leave 'Callback URL' empty)
+## Step 4: Agree to user conditions
+## Step 5: copy consumer key and consumer secret and paste below
 
 library(ROAuth)
 requestURL <- "https://api.twitter.com/oauth/request_token"

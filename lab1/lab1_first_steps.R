@@ -2,7 +2,7 @@
 ## First steps with R
 ## Author: Pablo Barbera
 ## Social Media and Political Participation
-## Lab 1, January 6th 2014
+## Lab 1, January 6th 2015
 ################################################################
 
 ## This is an example of an R script
@@ -92,5 +92,5 @@ library(maps)
 map(database="world")
 ?map
 
-## Later in the course we will learn how to add colors and labels to the map
+
 

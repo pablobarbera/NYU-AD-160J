@@ -2,21 +2,29 @@
 ## Analyzing Twitter Data
 ## Author: Pablo Barbera
 ## Social Media and Political Participation
-## Lab 3, January 8th 2014
+## Lab 3, January 9th 2015
 ################################################################
 
-setwd("~/Dropbox/teaching_2014/code")
+## As usual, before we run anything, we make sure to change the working
+## directory to where we have all our code and data stored. In my case, it is:
+setwd("~/Dropbox/teaching/social-media-political-participation/code")
+## But it will different for yours! Click on the wheel on the files tab on
+## the bottom right panel; then choose "set as working directory"; and paste
+## here in the script what you see on the console
 
+## First, we are going to install additional packages that will allow
+## us to analyze the tweets more efficiently
 install.packages("wordcloud")
 install.packages("ggplot2")
 install.packages("tm")
 
+## and we now load them
 library(streamR)
+library(NYU160J)
+library(wordcloud)
+library(ggplot2)
+library(tm)
 
-## We will also use some additional commands I have prepared for you.
-## Make sure you have saved the following file in your working folder
-## and then run this line:
-source("lab3_functions.R")
 
 ############################################
 ### ANALYZING KEY VARIABLES ABOUT TWEETS ###
@@ -26,7 +34,6 @@ source("lab3_functions.R")
 ## learn how to analyze them.
 
 ## Starting with the the random sample of tweets, let's first open them again.
-
 tweets = parseTweets("tweets_random.json")
 
 ## 1) In what language are these tweets written?
@@ -94,8 +101,8 @@ map.data = map_data("world")
 ## And we can now plot the tweets on the map. Don't worry too much about the
 ## code here, as long as it works. I will help you work with this when you
 ## need to get a map like this.
-ggplot(map.data) + geom_map(aes(map_id = region), map = map.data, fill = "grey80", 
-    color = "grey20", size = 0.25) + expand_limits(x = map.data$long, y = map.data$lat) + 
+ggplot(map.data) + geom_map(aes(map_id = region), map = map.data, fill = "grey90", 
+    color = "grey50", size = 0.25) + expand_limits(x = map.data$long, y = map.data$lat) + 
     scale_x_continuous("Longitude", limits=c(38,58)) + 
     scale_y_continuous("Latitude", limits=c(11,35)) +
     theme_minimal() + geom_point(data = tweets, 
