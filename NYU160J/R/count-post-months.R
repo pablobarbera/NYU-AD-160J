@@ -10,7 +10,7 @@
 #' @param dates Vector of dates in Facebook format
 #'
 
-countMonthsTweets <- function(dates){
+countMonthsPosts <- function(dates){
     month = formatFbDate(dates, format="date")
     month = substr(month, 1, 7)
     month = as.Date(paste0(month, "-01"))
