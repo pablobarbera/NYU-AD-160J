@@ -2,6 +2,7 @@
 
 export(aggregateMetric)
 export(countMonthsTweets)
+export(countWeeksPosts)
 export(countWeeksTweets)
 export(formatFbDate)
 export(formatTwDate)
