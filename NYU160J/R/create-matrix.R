@@ -1,6 +1,9 @@
 #' @rdname create_matrix
 #' @export
 
+#' @title 
+#' Creates data matrix from text
+
 
 create_matrix <- function(text, sparsity=.998){
     require(tm)
