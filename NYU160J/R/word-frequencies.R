@@ -1,7 +1,7 @@
 #' @rdname word.frequencies
 #' @export
 #'
-#' @title 
+#' @title
 #' Counts words in a string vector
 #'
 #' @description
@@ -13,7 +13,7 @@
 #'
 #' @param text string or string vector, text from which words are counted
 #'
-#' @param stopwords Additional stopwords to be removed. 
+#' @param stopwords Additional stopwords to be removed.
 #'
 #' @param verbose logical, default is \code{TRUE}, which generates some output to the
 #' R console with information.
@@ -26,7 +26,7 @@
 #'
 #' ## extract text from all tweets in the database
 #'  tweets <- extract.tweets(set, fields="text")
-#' 
+#'
 #' ## count words
 #'  wordFreq <- word.frequencies(tweets$text)
 #' }
@@ -36,8 +36,8 @@ word.frequencies <- function(text, stopwords=NULL, verbose=TRUE, sparsity=0.999)
     require(tm)
 
     cat("Removing punctuation... ")
-    text2 <- gsub("|\\\\|\\.|\\,|\\;|\\:|\\'|\\&|\\-|\\?|\\!|\\)|\\(|-|‘|\\n|\\’|\\“|\\[", "", text) 
-    text2 <- gsub('\\"', "", text2) 
+    text2 <- gsub("|\\\\|\\.|\\,|\\;|\\:|\\'|\\&|\\-|\\?|\\!|\\)|\\(|-|‘|\\n|\\’|\\“|\\[", "", text)
+    text2 <- gsub('\\"', "", text2)
     cat("done!\n")
     # preparing corpus of words
     if (Sys.info()['sysname']=="Darwin"){
@@ -46,7 +46,10 @@ word.frequencies <- function(text, stopwords=NULL, verbose=TRUE, sparsity=0.999)
     if (Sys.info()['sysname']=="Windows"){
         text3 <- iconv(enc2utf8(text2), sub='byte')
     }
-   
+    if (Sys.info()['sysname']=="Linux"){
+        text3 <- iconv(enc2utf8(text2), sub='byte')
+    }
+
     # convert to lower case
     cat("Converting to lowercase... ")
     text3 <- tolower(text3)
@@ -63,19 +66,18 @@ word.frequencies <- function(text, stopwords=NULL, verbose=TRUE, sparsity=0.999)
     # building document term matrix
     cat("Counting words... ")
     myTdm <- TermDocumentMatrix(Corpus(VectorSource(text3)), control=list(minWordLength=3))
-    myTdm2 <- removeSparseTerms(myTdm, sparsity)   
-    cat("done!\n") 
+    myTdm2 <- removeSparseTerms(myTdm, sparsity)
+    cat("done!\n")
 
     # preparing word frequencies
     m <- as.matrix(myTdm2)
-    wordFreq <- sort(rowSums(m), decreasing=TRUE)   
+    wordFreq <- sort(rowSums(m), decreasing=TRUE)
     # removing stopwords
     cat("Removing stopwords... ")
     stopwords <- c(stopwords, "dont", "amp", "will", "heres")
-    wordFreq <- wordFreq[which(names(wordFreq) %in% 
+    wordFreq <- wordFreq[which(names(wordFreq) %in%
         c(stopwords('english'), stopwords)==FALSE)]
     cat("done!")
     return(wordFreq)
 
 }
-
